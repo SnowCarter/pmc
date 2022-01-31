@@ -96,7 +96,7 @@ int pmcx_maxclique_basic::search(pmc_graph& G, vector<int>& sol) {
 
     sol.resize(mc);
     for (int i = 0; i < C_max.size(); i++)  sol[i] = C_max[i];
-    G.print_break();
+    // G.print_break();
     return sol.size();
 }
 
@@ -147,10 +147,10 @@ void pmcx_maxclique_basic::branch(
                         // ensure updated max is flushed
                         mc = C.size();
                         C_max = C;
-                        print_mc_info(C,sec);
+                        // print_mc_info(C,sec);
                         if (mc >= param_ub) {
                             not_reached_ub = false;
-                            cout << "[pmc: upper bound reached]  omega = " << mc <<endl;
+                            // cout << "[pmc: upper bound reached]  omega = " << mc <<endl;
                         }
                     }
 
@@ -258,7 +258,7 @@ int pmcx_maxclique_basic::search_dense(pmc_graph& G, vector<int>& sol) {
 
     sol.resize(mc);
     for (int i = 0; i < C_max.size(); i++)  sol[i] = C_max[i];
-    G.print_break();
+    // G.print_break();
     return sol.size();
 }
 
@@ -303,10 +303,10 @@ void pmcx_maxclique_basic::branch_dense(
                         // ensure updated max is flushed
                         mc = C.size();
                         C_max = C;
-                        print_mc_info(C,sec);
+                        // print_mc_info(C,sec);
                         if (mc >= param_ub) {
                             not_reached_ub = false;
-                            cout << "[pmc: upper bound reached]  omega = " << mc <<endl;
+                            // cout << "[pmc: upper bound reached]  omega = " << mc <<endl;
                         }
                     }
 

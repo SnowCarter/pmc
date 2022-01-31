@@ -49,15 +49,15 @@ int max_clique(long long nedges, int *ei, int *ej, int index_offset,
     if (in.lb == 0 && in.heu_strat != "0") { // skip if given as input
         pmc_heu maxclique(G,in);
         in.lb = maxclique.search(G, C);
-        cout << "Heuristic found clique of size " << in.lb;
-        cout << " in " << get_time() - seconds << " seconds" <<endl;
-        cout << "[pmc: heuristic]  ";
+        // cout << "Heuristic found clique of size " << in.lb;
+        // cout << " in " << get_time() - seconds << " seconds" <<endl;
+        // cout << "[pmc: heuristic]  ";
         print_max_clique(C);
     }
 
     //! check solution found by heuristic
     if (in.lb == in.ub && !in.MCE) {
-        cout << "Heuristic found optimal solution." << endl;
+        // cout << "Heuristic found optimal solution." << endl;
     }
     else if (in.algorithm >= 0) {
         switch(in.algorithm) {

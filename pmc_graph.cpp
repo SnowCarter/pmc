@@ -66,19 +66,19 @@ void pmc_graph::read_graph(const string& filename) {
     else if (ext == "gr")
         read_metis(filename);
     else {
-        cout << "Unsupported graph format." <<endl;
+        // cout << "Unsupported graph format." <<endl;
         return;
     }
     basic_stats(sec);
 }
 
 void pmc_graph::basic_stats(double sec) {
-    cout << "Reading time " << get_time() - sec << endl;
-    cout << "|V|: " << num_vertices() <<endl;
-    cout << "|E|: " << num_edges() <<endl;
-    cout << "p: " << density() <<endl;
-    cout << "d_max: " << get_max_degree() <<endl;
-    cout << "d_avg: " << get_avg_degree() <<endl;
+    // cout << "Reading time " << get_time() - sec << endl;
+    // cout << "|V|: " << num_vertices() <<endl;
+    // cout << "|E|: " << num_edges() <<endl;
+    // cout << "p: " << density() <<endl;
+    // cout << "d_max: " << get_max_degree() <<endl;
+    // cout << "d_avg: " << get_avg_degree() <<endl;
 }
 
 
@@ -89,7 +89,7 @@ void pmc_graph::read_edges(const string& filename) {
     int v = 0, u = 0, num_es = 0, self_edges = 0;
 
     ifstream in_check (filename.c_str());
-    if (!in_check) { cout << filename << "File not found!" <<endl; return; }
+    if (!in_check) {  return; }//cout << filename << "File not found!" <<endl;
 
     bool fix_start_idx = true;
     while (!in_check.eof()) {
@@ -135,7 +135,7 @@ void pmc_graph::read_edges(const string& filename) {
     }
     vert_list.clear();
     vertex_degrees();
-    cout << "self-loops: " << self_edges <<endl;
+    // cout << "self-loops: " << self_edges <<endl;
 }
 
 pmc_graph::pmc_graph(long long nedges, const int *ei, const int *ej, int offset) {
@@ -179,7 +179,7 @@ void pmc_graph::read_mtx(const string& filename) {
 
     ifstream in (filename.c_str());
     if(!in) {
-        cout<<filename<<" not Found!"<<endl;
+        // cout<<filename<<" not Found!"<<endl;
         return;
     }
 
@@ -608,8 +608,8 @@ void pmc_graph::degree_bucket_sort(bool desc) {
         }
     }
 
-    cout << "[pmc: sorting neighbors]  |E| = " << edges.size();
-    cout << ", |E_sorted| = " << tmp_edges.size() <<endl;
+    // cout << "[pmc: sorting neighbors]  |E| = " << edges.size();
+    // cout << ", |E_sorted| = " << tmp_edges.size() <<endl;
     edges = tmp_edges;
 }
 
